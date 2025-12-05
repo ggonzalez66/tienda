@@ -5,8 +5,13 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
+  const repoName =
+    mode === "github" && env.VITE_REPO_NAME
+      ? env.VITE_REPO_NAME.replace(/^\/+|\/+$/g, "")
+      : "";
+
   return {
-    base: `/${env.VITE_REPO_NAME}/`,
+    base: repoName ? `/${repoName}/` : "/", // keep absolute paths only for GitHub Pages builds
     plugins: [react(), tailwindcss()],
     server: {
       open: true,

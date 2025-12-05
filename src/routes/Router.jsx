@@ -4,7 +4,10 @@ import Loading from "../components/common/loading/Loading";
 const Home = lazy(() => import("../pages/Home"));
 const Main = lazy(() => import("../layouts/Main"));
 
-const repoName = import.meta.env.VITE_REPO_NAME || "";
+const basename =
+  import.meta.env.MODE === "github" && import.meta.env.VITE_REPO_NAME
+    ? `/${import.meta.env.VITE_REPO_NAME.replace(/^\/+|\/+$/g, "")}`
+    : "/";
 
 export const router = createBrowserRouter(
   [
@@ -23,5 +26,5 @@ export const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: `/${repoName}` }
+  { basename }
 );
