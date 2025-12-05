@@ -10,28 +10,28 @@ const projectData = [
   {
     id: 1,
     image: card1,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    category: "",
+    title: "TIENDA ONLINE",
     description:
-      "I focus on crafting smooth, responsive interfaces that balance aesthetic appeal with practical functionality.",
-    link: "#!",
+      "Ofrecemos una variedad de productos en línea, con catálogo variado, una experiencia de compra rápida, moderna y accesible desde cualquier dispositivo.",
+    link: "https://tienda.tplanet.cl",
   },
   {
     id: 2,
     image: card2,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    category: "",
+    title: "CATÁLOGO EMPRESA",
     description:
-      "Designed an intuitive dashboard for product management, emphasizing clarity and user efficiency.",
+      "Ofrecemos un catálogo amplio, que abarcan productos y servicios diseñaods para mejorar la eficiencia, reducir costos y apoyar la sustentabilidad de las organizaciones..",
     link: "#!",
   },
   {
     id: 3,
     image: card3,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    category: "",
+    title: "BUSINESS MARKET",
     description:
-      "Developed a modern admin panel with a focus on usability and seamless navigation for end users and so on.",
+      "Ofrecemos productos al por mayor, soluciones de compra eficientes y un catálogo amplio orientado a negocios, emprendedores y organizaciones que requieren abastecimiento",
     link: "#!",
   },
   {
@@ -71,7 +71,7 @@ const Portfolio = () => {
     >
       <div className="xl:mb-17.5 mb-5">
         <div className="max-sm:px-2 text-center mx-auto max-w-144.25">
-          <p className="section-title ">Portfolio</p>
+          <p className="section-title ">Divisiones Top planet</p>
           <p className="font-normal text-[18px] max-sm:text-[14px] pt-6 text-gray-400">
             Here's a selection of my recent work, showcasing my skills in
             creating user-centric and visually appealing interfaces.
@@ -80,19 +80,12 @@ const Portfolio = () => {
       </div>
       <div className="mx-auto flex justify-center">
         <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
-          {projectData.map((data, index) => (
+          {projectData.slice(0, 3).map((data, index) => (
             <Projects data={data} key={index} />
           ))}
         </div>
       </div>
-      <div className="text-center">
-        <a
-          href="#!"
-          className="btn btn-primary py-3 px-6 mt-12.5 text-center text-[16px] font-semibold"
-        >
-          More Project
-        </a>
-      </div>
+
     </div>
   );
 };

@@ -23,51 +23,29 @@ const informationSummaryData = [
 
 const Introduction = () => {
   return (
-    <div
-      className="flex max-lg:flex-col-reverse sm:justify-between pt-10 lg:pt-31.5 lg:mb-27.5 max-xl:gap-2 p-2 max-xxl:px-4"
+    <section
+      className="w-full flex flex-col items-center justify-center py-16 px-4 bg-white"
       id="introduction"
     >
-      <div className="w-full flex flex-col justify-between max-lg:text-center">
-        <div className="pt-13 me-31.5 w-full lg:w-auto transition-all duration-500">
-          <p className="text-3xl xxs:text-4xl sm:max-xl:text-5xl xl:text-6xl font-semibold w-full">
-            Hello, I’m
-            <span className="text-nowrap shrink-0 inline-block w-full">
-              Brooklyn Gilbert
-            </span>
-          </p>
-          <p className="text-xs xxs:text-lg lg:text-[18px] my-6">
-            I'm a Freelance <span className="bg-highlight">UI/UX Designer</span>{" "}
-            and <span className="bg-highlight"> Developer</span> based in
-            London, England. I strives to build immersive and beautiful web
-            applications through carefully crafted code and user-centric design.
-          </p>
-          <p className="text-center lg:text-start">
-            <a
-              className="btn-primary btn btn-xs xxs:btn-lg text-white"
-              href="mailto:example@gmail.com"
-            >
-              Say Hello!
-            </a>
-          </p>
-        </div>
-        <div className="mx-auto lg:mx-0 relative">
-          <div className="grid max-xxs:grid-flow-col grid-cols-3 w-fit mt-10 gap-1">
-            {informationSummaryData.map((item) => (
-              <InformationSummary key={item.id} item={item} />
-            ))}
-          </div>
-        </div>
+      <div className="max-w-3xl text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+          TopPlanet Holding
+        </h1>
+        <h2 className="text-xl sm:text-2xl font-medium text-picto-primary mb-4">
+          Innovación, energía y resultados para tu empresa
+        </h2>
+        <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
+          En TopPlanet Holding creemos en hacer las cosas de manera diferente: con innovación, energía y un servicio que realmente genera resultados. Somos una empresa dedicada a ofrecer soluciones de venta y un catálogo empresarial diseñado para impulsar el crecimiento de nuestros clientes.<br /><br />
+          Cada producto, cada servicio y cada proyecto que desarrollamos está pensado para brindar valor real y nuevas oportunidades. Si buscas calidad, variedad y una atención profesional, estás en el lugar correcto.
+        </p>
+        <a
+          className="btn-primary btn btn-lg text-white px-8 py-3 text-lg font-semibold shadow-md hover:scale-105 transition-transform"
+          href="#portfolio"
+        >
+          Ver nuestro Servicios
+        </a>
       </div>
-      <div
-        className={`max-w-134 w-full h-full max-lg:mx-auto aspect-[536/636] relative`}
-      >
-        <img
-          className={`shadow-2xl shadow-gray-200 w-full h-full absolute bottom-0 object-cover bg-white rounded-3xl`}
-          src={person}
-          alt="person"
-        />
-      </div>
-    </div>
+    </section>
   );
 };
 
