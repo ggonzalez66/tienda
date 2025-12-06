@@ -71,7 +71,7 @@ const Portfolio = () => {
     >
       <div className="xl:mb-17.5 mb-5">
         <div className="max-sm:px-2 text-center mx-auto max-w-144.25">
-          <p className="section-title ">Divisiones Top planet</p>
+          <p className="section-title ">Divisiones Top Planet</p>
           <p className="font-normal text-[18px] max-sm:text-[14px] pt-6 text-gray-400">
             Here's a selection of my recent work, showcasing my skills in
             creating user-centric and visually appealing interfaces.

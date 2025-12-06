@@ -13,6 +13,7 @@ import "../../index.css";
 const Home = () => {
   return (
     <div className="relative">
+      <Portfolio />
       <div className="introduction-profile-background">
         <div className="content">
           <Introduction />
@@ -22,7 +23,6 @@ const Home = () => {
       {/* <div className="bg-soft-white pt-30">
         <WorkProcess />
       </div> */}
-      <Portfolio />
       {/*
       <div className="bg-gray-900">
         <WorkTogether />

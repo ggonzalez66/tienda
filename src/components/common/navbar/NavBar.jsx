@@ -3,8 +3,8 @@ import logo from "../../../assets/logo.png";
 import { Link } from "react-scroll";
 
 const navItems = [
-  { id: 1, name: "Home", url: "introduction" },
   { id: 4, name: "Nuestras Divisiones", url: "portfolio" },
+  { id: 1, name: "Nosotros", url: "introduction" },
 ];
 
 const handleMenuClick = () => {
@@ -99,17 +99,6 @@ const NavBar = () => {
           <ul className="hidden lg:flex menu menu-horizontal text-[16px] font-medium md:shrink-0">
             {menu}
           </ul>
-          <p className="">
-            <Link
-              className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
-              href="#contact"
-              to={`contact`}
-              smooth={true}
-              duration={900}
-            >
-              Contact
-            </Link>
-          </p>
         </div>
       </div>
     </div>
