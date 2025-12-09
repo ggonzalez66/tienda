@@ -9,7 +9,7 @@ import card6 from "../../assets/images/portfolio-images/card-6.png";
 const projectData = [
   {
     id: 1,
-    image: card1,
+    image: "/tiendaOnline.jpeg",
     category: "",
     title: "TIENDA ONLINE",
     description:
@@ -73,8 +73,9 @@ const Portfolio = () => {
         <div className="max-sm:px-2 text-center mx-auto max-w-144.25">
           <p className="section-title ">Divisiones Top Planet</p>
           <p className="font-normal text-[18px] max-sm:text-[14px] pt-6 text-gray-400">
-            Here's a selection of my recent work, showcasing my skills in
-            creating user-centric and visually appealing interfaces.
+            Descubre las unidades de negocio que impulsan a Top Planet Holding:
+            soluciones en retail, abastecimiento corporativo y servicios
+            especializados que generan valor real para nuestros clientes.
           </p>
         </div>
       </div>

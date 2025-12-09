@@ -9,17 +9,22 @@ import Portfolio from "../components/portfolio/Portfolio";
 // import Testimonial from "../components/testimonial/Testimonial";
 // import Contact from "../components/contact/Contact";
 import "../../index.css";
+import { Element } from "react-scroll";
 
 const Home = () => {
   return (
     <div className="relative">
-      <Portfolio />
-      <div className="introduction-profile-background">
-        <div className="content">
-          <Introduction />
-          {/* <Profile /> */}
+      <Element name="portfolio">
+        <Portfolio />
+      </Element>
+      <Element name="introduction">
+        <div className="introduction-profile-background">
+          <div className="content">
+            <Introduction />
+            {/* <Profile /> */}
+          </div>
         </div>
-      </div>
+      </Element>
       {/* <div className="bg-soft-white pt-30">
         <WorkProcess />
       </div> */}

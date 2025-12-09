@@ -6,6 +6,7 @@ const navItems = [
   { id: 4, name: "Nuestras Divisiones", url: "portfolio" },
   { id: 1, name: "Nosotros", url: "introduction" },
 ];
+const sectionNames = navItems.map((item) => item.url.toLowerCase());
 
 const handleMenuClick = () => {
   if (document.activeElement instanceof HTMLElement) {
@@ -13,36 +14,69 @@ const handleMenuClick = () => {
   }
 };
 
-const menu = navItems.map((item) => (
-  <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
-    <Link
-      onClick={handleMenuClick}
-      to={item.url.toLowerCase()}
-      smooth={true}
-      duration={1000}
-      spy={true}
-      offset={-140}
-      activeStyle={{
-        backgroundColor: "#9929fb",
-        color: "white",
-      }}
-      className={`hover:text-picto-primary px-5 py-3 mx-1`}
-    >
-      {item.name}
-    </Link>
-  </li>
-));
+const menu = (offset, activeSection) =>
+  navItems.map((item) => {
+    const target = item.url.toLowerCase();
+    const isActive = activeSection === target;
+    return (
+      <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
+        <Link
+          onClick={handleMenuClick}
+          to={target}
+          smooth={true}
+          duration={1000}
+          offset={offset}
+          className={`px-5 py-3 mx-1 font-medium transition-colors duration-300 ${
+            isActive
+              ? "bg-[#9929fb] text-white rounded-full"
+              : "hover:text-picto-primary"
+          }`}
+        >
+          {item.name}
+        </Link>
+      </li>
+    );
+  });
 
 const NavBar = () => {
   const [position, setPosition] = useState(0);
+  const [activeSection, setActiveSection] = useState(sectionNames[0]);
 
   useEffect(() => {
     const handleScroll = () => {
       setPosition(window.scrollY);
     };
     window.addEventListener("scroll", handleScroll);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visibleEntry) {
+          const sectionId = (
+            visibleEntry.target.getAttribute("data-section") ??
+            visibleEntry.target.id
+          )?.toLowerCase();
+          if (sectionId) {
+            setActiveSection(sectionId);
+          }
+        }
+      },
+      {
+        threshold: [0.3, 0.5, 0.7],
+        rootMargin: "-140px 0px -20% 0px",
+      }
+    );
+
+    const targets = sectionNames
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    targets.forEach((el) => observer.observe(el));
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
   }, []);
 
@@ -77,7 +111,7 @@ const NavBar = () => {
               tabIndex={0}
               className={`menu menu-lg dropdown-content rounded-box z-1 mt-3 w-lvw p-2 shadow font-semibold flex-nowrap bg-white text-black`}
             >
-              {menu}
+              {menu(-140, activeSection)}
             </ul>
           </div>
 
@@ -97,7 +131,7 @@ const NavBar = () => {
 
         <div className="lg:flex items-center">
           <ul className="hidden lg:flex menu menu-horizontal text-[16px] font-medium md:shrink-0">
-            {menu}
+            {menu(-140, activeSection)}
           </ul>
         </div>
       </div>
